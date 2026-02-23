@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">短信转发器</string>
+    <string name="notification_channel_name">后台监听</string>
+    <string name="notification_channel_desc">退出应用后继续监听并转发短信</string>
+    <string name="notification_title">短信转发器</string>
+    <string name="notification_text">正在后台监听短信</string>
+</resources>

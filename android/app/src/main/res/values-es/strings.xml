@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Reenvío de SMS</string>
+    <string name="notification_channel_name">Monitoreo en segundo plano</string>
+    <string name="notification_channel_desc">Continuar escuchando y reenviando mensajes SMS después de salir de la aplicación.</string>
+    <string name="notification_title">Reenvío de SMS</string>
+    <string name="notification_text">Escucha de mensajes de texto en segundo plano</string>
+</resources>

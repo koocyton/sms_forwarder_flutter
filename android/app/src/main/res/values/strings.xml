@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">SMS Forwarder</string>
+    <string name="notification_channel_name">Background listening</string>
+    <string name="notification_channel_desc">Keep SMS forwarding active when app is in background</string>
+    <string name="notification_title">SMS Forwarder</string>
+    <string name="notification_text">Listening for SMS in background</string>
+</resources>
