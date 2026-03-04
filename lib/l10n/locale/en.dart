@@ -89,4 +89,60 @@ Map<String, String> get enLang => {
   "App:Tip thanks":"Thank you for your support!",
   "App:Tip unavailable":"Tip not available right now",
   "SmsForward:NotForwarded":"Not forwarded",
+
+  // Channel presets
+  "App:Add Channel":"Add Chat Platform",
+  "App:Add Channel subtitle":"Telegram, Feishu, DingTalk and more",
+  "App:Add API subtitle":"Custom HTTP API",
+  "App:Add Email subtitle":"SMTP email forwarding",
+  "App:Channel preset":"Select Platform",
+  "App:Channel preset hint":"Quickly configure forwarding for popular chat apps without manually filling in URLs and request bodies",
+  "App:Channel filter":"Filters (optional)",
+  "App:Channel guide title":"How to get credentials?",
+  "App:Webhook URL":"Webhook URL",
+  "App:Enter webhook":"Please enter Webhook URL",
+
+  // Telegram
+  "App:Channel desc telegram":"Create a Telegram Bot and enter Bot Token + Chat ID",
+  "App:Telegram bot token":"Bot Token",
+  "App:Enter bot token":"Please enter Bot Token",
+  "App:Telegram chat id":"Chat ID",
+  "App:Enter chat id":"Please enter Chat ID",
+  "App:Telegram chat id tip":"Get your Chat ID by messaging @userinfobot. Group/channel IDs usually start with -100",
+  "App:Channel guide telegram":"""1. Search @BotFather on Telegram, send /newbot to create a bot
+2. Follow the prompts — BotFather will give you a Bot Token (e.g. 110201543:AAH...)
+3. Add the bot to your target chat or channel
+4. Message @userinfobot with /start to get your Chat ID
+   • Private chat ID is a positive integer
+   • Group/channel IDs start with -100""",
+
+  // Feishu
+  "App:Channel desc feishu":"Create a custom bot in a Feishu group and get the Webhook URL",
+  "App:Channel guide feishu":"""1. Open a Feishu group → top-right ··· → Settings → Bots
+2. Tap "Add Bot" → "Custom Bot"
+3. Set a name and description, tap "Add"
+4. Copy the Webhook URL and paste it here""",
+
+  // DingTalk
+  "App:Channel desc dingtalk":"Create a custom robot in a DingTalk group using keyword security",
+  "App:Dingtalk keyword tip":"Note: Only keyword verification is supported. Add a keyword (e.g. 'SMS') in DingTalk robot settings. Every forwarded message must contain that keyword to be accepted",
+  "App:Channel guide dingtalk":"""1. Open a DingTalk group → top-right ··· → Smart Group Assistant → Add Robot
+2. Choose "Custom" robot and tap "Add"
+3. Under security settings, select "Keywords" and add a word (e.g. 'SMS')
+4. Copy the Webhook URL and paste it here
+Note: Messages must contain the keyword you set, otherwise they will be rejected""",
+
+  // WeCom
+  "App:Channel desc wecom":"Create a group bot in WeCom and get the Webhook URL",
+  "App:Channel guide wecom":"""1. Open a WeCom group → top-right ··· → Add Group Bot
+2. Tap "Create a new bot", set a name
+3. Copy the Webhook URL at the bottom and paste it here""",
+
+  // Slack
+  "App:Channel desc slack":"Receive messages via Incoming Webhooks",
+  "App:Channel guide slack":"""1. Go to https://api.slack.com/apps → "Create New App"
+2. Choose "From scratch", set app name and select workspace
+3. Go to "Incoming Webhooks" → enable → "Add New Webhook to Workspace"
+4. Select target channel and click "Allow"
+5. Copy the generated Webhook URL and paste it here""",
 };

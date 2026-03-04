@@ -10,6 +10,7 @@ class ApiConfig {
     this.senderFilter,
     this.bodyFilter,
     this.enabled = true,
+    this.channel,
   }) : headers = headers ?? {};
 
   final String id;
@@ -24,6 +25,8 @@ class ApiConfig {
   /// 内容过滤（子串匹配，空则不过滤）
   final String? bodyFilter;
   final bool enabled;
+  /// 聊天平台标识：telegram / feishu / dingtalk / wecom / slack，通用 API 为 null
+  final String? channel;
 
   ApiConfig copyWith({
     String? id,
@@ -35,6 +38,7 @@ class ApiConfig {
     String? senderFilter,
     String? bodyFilter,
     bool? enabled,
+    String? channel,
   }) {
     return ApiConfig(
       id: id ?? this.id,
@@ -46,6 +50,7 @@ class ApiConfig {
       senderFilter: senderFilter ?? this.senderFilter,
       bodyFilter: bodyFilter ?? this.bodyFilter,
       enabled: enabled ?? this.enabled,
+      channel: channel ?? this.channel,
     );
   }
 
@@ -71,6 +76,7 @@ class ApiConfig {
       'senderFilter': senderFilter,
       'bodyFilter': bodyFilter,
       'enabled': enabled,
+      'channel': channel,
     };
   }
 
@@ -88,6 +94,7 @@ class ApiConfig {
       senderFilter: json['senderFilter'] as String?,
       bodyFilter: json['bodyFilter'] as String?,
       enabled: json['enabled'] as bool? ?? true,
+      channel: json['channel'] as String?,
     );
   }
 }

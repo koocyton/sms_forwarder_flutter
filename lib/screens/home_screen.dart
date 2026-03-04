@@ -7,6 +7,7 @@ import '../models/email_config.dart';
 import '../providers/app_state.dart';
 import '../services/tip_service.dart';
 import 'api_config_screen.dart';
+import 'channel_preset_screen.dart';
 import 'email_config_screen.dart';
 import 'logs_screen.dart';
 
@@ -78,13 +79,43 @@ class HomeScreen extends StatelessWidget {
   void _showAddMenu(BuildContext context) {
     showModalBottomSheet<void>(
       context: context,
+      shape: const RoundedRectangleBorder(
+        borderRadius: BorderRadius.vertical(top: Radius.circular(16)),
+      ),
       builder: (ctx) => SafeArea(
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
+            Padding(
+              padding: const EdgeInsets.fromLTRB(16, 16, 16, 4),
+              child: Text(
+                'App:Add'.xtr,
+                style: Theme.of(ctx).textTheme.titleSmall?.copyWith(
+                  color: Theme.of(ctx).colorScheme.onSurfaceVariant,
+                ),
+              ),
+            ),
             ListTile(
-              leading: const Icon(Icons.link),
+              leading: CircleAvatar(
+                backgroundColor: Theme.of(ctx).colorScheme.primaryContainer,
+                child: Icon(Icons.hub_outlined, color: Theme.of(ctx).colorScheme.primary),
+              ),
+              title: Text('App:Add Channel'.xtr),
+              subtitle: Text('App:Add Channel subtitle'.xtr),
+              onTap: () {
+                Navigator.pop(ctx);
+                Navigator.of(context).push(
+                  MaterialPageRoute(builder: (_) => const ChannelPresetScreen()),
+                );
+              },
+            ),
+            ListTile(
+              leading: CircleAvatar(
+                backgroundColor: Theme.of(ctx).colorScheme.secondaryContainer,
+                child: Icon(Icons.link, color: Theme.of(ctx).colorScheme.secondary),
+              ),
               title: Text('App:Add API'.xtr),
+              subtitle: Text('App:Add API subtitle'.xtr),
               onTap: () {
                 Navigator.pop(ctx);
                 Navigator.of(context).push(
@@ -93,8 +124,12 @@ class HomeScreen extends StatelessWidget {
               },
             ),
             ListTile(
-              leading: const Icon(Icons.email),
+              leading: CircleAvatar(
+                backgroundColor: Theme.of(ctx).colorScheme.tertiaryContainer,
+                child: Icon(Icons.email_outlined, color: Theme.of(ctx).colorScheme.tertiary),
+              ),
               title: Text('App:Add Email'.xtr),
+              subtitle: Text('App:Add Email subtitle'.xtr),
               onTap: () {
                 Navigator.pop(ctx);
                 Navigator.of(context).push(
@@ -102,6 +137,7 @@ class HomeScreen extends StatelessWidget {
                 );
               },
             ),
+            const SizedBox(height: 8),
           ],
         ),
       ),
@@ -473,6 +509,35 @@ class _ConfigTile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final channel = channelTypeFromId(config.channel);
+    final Widget leading = channel != null
+        ? CircleAvatar(
+            backgroundColor: config.enabled
+                ? channel.color
+                : Theme.of(context).colorScheme.surfaceContainerHighest,
+            child: Text(
+              channel.avatar,
+              style: TextStyle(
+                color: config.enabled
+                    ? Colors.white
+                    : Theme.of(context).colorScheme.onSurfaceVariant,
+                fontWeight: FontWeight.bold,
+                fontSize: 12,
+              ),
+            ),
+          )
+        : CircleAvatar(
+            backgroundColor: config.enabled
+                ? Theme.of(context).colorScheme.primaryContainer
+                : Theme.of(context).colorScheme.surfaceContainerHighest,
+            child: Icon(
+              Icons.link,
+              color: config.enabled
+                  ? Theme.of(context).colorScheme.primary
+                  : Theme.of(context).colorScheme.onSurfaceVariant,
+            ),
+          );
+
     return Card(
       margin: const EdgeInsets.only(bottom: 8),
       elevation: 0,
@@ -484,17 +549,7 @@ class _ConfigTile extends StatelessWidget {
       ),
       child: ListTile(
         contentPadding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-        leading: CircleAvatar(
-          backgroundColor: config.enabled
-              ? Theme.of(context).colorScheme.primaryContainer
-              : Theme.of(context).colorScheme.surfaceContainerHighest,
-          child: Icon(
-            Icons.link,
-            color: config.enabled
-                ? Theme.of(context).colorScheme.primary
-                : Theme.of(context).colorScheme.onSurfaceVariant,
-          ),
-        ),
+        leading: leading,
         title: Text(
           config.name,
           style: TextStyle(
@@ -505,7 +560,7 @@ class _ConfigTile extends StatelessWidget {
           ),
         ),
         subtitle: Text(
-          config.url,
+          channel != null ? channel.label : config.url,
           maxLines: 1,
           overflow: TextOverflow.ellipsis,
           style: Theme.of(context).textTheme.bodySmall,

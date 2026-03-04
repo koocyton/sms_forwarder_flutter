@@ -291,4 +291,62 @@ Map<String, String> get zhCNLang => {
   "App:Tip thanks":"感谢您的支持！",
   "App:Tip unavailable":"打赏暂不可用",
   "SmsForward:NotForwarded":"（未转发）",
+
+  // 聊天平台预设
+  "App:Add Channel":"添加聊天平台",
+  "App:Add Channel subtitle":"Telegram、飞书、钉钉等快速配置",
+  "App:Add API subtitle":"自定义 HTTP API",
+  "App:Add Email subtitle":"SMTP 邮箱转发",
+  "App:Channel preset":"选择平台",
+  "App:Channel preset hint":"为常用聊天软件快速生成转发配置，无需手动填写 URL 和请求体",
+  "App:Channel filter":"过滤设置（可选）",
+  "App:Channel guide title":"如何获取配置？",
+  "App:Webhook URL":"Webhook URL",
+  "App:Enter webhook":"请输入 Webhook URL",
+
+  // Telegram
+  "App:Channel desc telegram":"需创建 Telegram Bot，填写 Bot Token 和 Chat ID",
+  "App:Telegram bot token":"Bot Token",
+  "App:Enter bot token":"请输入 Bot Token",
+  "App:Telegram chat id":"Chat ID",
+  "App:Enter chat id":"请输入 Chat ID",
+  "App:Telegram chat id tip":"可通过给 @userinfobot 发消息获取你的 Chat ID；群组/频道 ID 通常以 -100 开头",
+  "App:Channel guide telegram":"""1. 在 Telegram 中搜索 @BotFather，发送 /newbot 创建机器人
+2. 按提示设置名称后，BotFather 会返回 Bot Token（格式：110201543:AAH...）
+3. 将机器人添加到目标聊天群或频道
+4. 搜索 @userinfobot，发送 /start 获取你的 Chat ID
+   • 私聊 Chat ID 为正整数
+   • 群组/频道 Chat ID 以 -100 开头""",
+
+  // 飞书
+  "App:Channel desc feishu":"在飞书群创建自定义机器人，获取 Webhook URL",
+  "App:Channel guide feishu":"""1. 打开飞书群 → 右上角「···」→「设置」→「机器人」
+2. 点击「添加机器人」→「自定义机器人」
+3. 设置名称和描述，点击「添加」
+4. 复制页面中的 Webhook 地址粘贴到此处
+   （无需额外安全设置，建议勾选「自定义关键词」以防滥用）""",
+
+  // 钉钉
+  "App:Channel desc dingtalk":"在钉钉群创建自定义机器人，使用「关键词」安全设置",
+  "App:Dingtalk keyword tip":"注意：仅支持「关键词」安全验证。请在钉钉机器人设置中添加一个关键词（如「短信」），每条转发消息均包含该词，即可正常推送",
+  "App:Channel guide dingtalk":"""1. 打开钉钉群 → 右上角「···」→「智能群助手」→「添加机器人」
+2. 选择「自定义」机器人，点击「添加」
+3. 安全设置选择「关键词」，输入一个词（如「短信」）并记住
+4. 复制 Webhook 地址粘贴到此处
+提示：发往该机器人的消息体中必须包含你设置的关键词，否则会被拒绝""",
+
+  // 企业微信
+  "App:Channel desc wecom":"在企业微信群创建群机器人，获取 Webhook URL",
+  "App:Channel guide wecom":"""1. 打开企业微信群 → 右上角「···」→「添加群机器人」
+2. 点击「新创建一个机器人」，设置名称
+3. 复制页面底部的 Webhook 地址粘贴到此处
+   （无需额外安全设置）""",
+
+  // Slack
+  "App:Channel desc slack":"使用 Incoming Webhooks 接收消息",
+  "App:Channel guide slack":"""1. 前往 https://api.slack.com/apps → 「Create New App」
+2. 选择「From scratch」，设置应用名称并选择工作区
+3. 进入「Incoming Webhooks」→ 开启开关 → 「Add New Webhook to Workspace」
+4. 选择目标频道，点击「Allow」
+5. 复制生成的 Webhook URL 粘贴到此处""",
 };
